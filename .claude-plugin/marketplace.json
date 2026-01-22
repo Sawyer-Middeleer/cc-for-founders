@@ -1,79 +1,28 @@
 {
   "name": "cc-for-founders",
-  "version": "1.0.0",
-  "description": "A curated collection of Claude Code skills and subagents for startup founders",
-  "repository": "https://github.com/Sawyer-Middeleer/cc-for-founders",
-  "skills": [
+  "owner": {
+    "name": "Sawyer Middeleer"
+  },
+  "metadata": {
+    "description": "Claude Code skills and subagents for startup founders",
+    "version": "1.0.0"
+  },
+  "plugins": [
     {
-      "id": "enriching-sales-contacts",
-      "name": "Enriching Sales Contacts",
-      "description": "Enriches sales contacts from a Google Sheet containing LinkedIn URLs. Uses contact enrichment MCPs and parallel processing for efficiency.",
-      "path": "skills/enriching-sales-contacts/SKILL.md",
-      "category": "sales",
-      "tags": ["sales", "enrichment", "linkedin", "sheets", "batch-processing"]
-    },
-    {
-      "id": "conducting-market-research",
-      "name": "Conducting Market Research",
-      "description": "Researches a product/topic by mining Reddit, Twitter/X, and YouTube for pain points, competitive intelligence, and voice-of-customer data.",
-      "path": "skills/conducting-market-research/SKILL.md",
-      "category": "research",
-      "tags": ["market-research", "reddit", "twitter", "youtube", "pain-points", "voice-of-customer", "competitive-analysis"]
-    },
-    {
-      "id": "planning-feature",
-      "name": "Planning Feature",
-      "description": "Guides founders through structured feature planning: problem validation, solution exploration, UX concepts, and technical tradeoffs—all in plain language for non-technical users.",
-      "path": "skills/planning-feature/SKILL.md",
-      "category": "product",
-      "tags": ["feature-planning", "product", "ux", "validation", "requirements", "non-technical"]
+      "name": "founder-tools",
+      "description": "Skills and agents for startup founders covering market research, sales prospecting, content creation, and product planning",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/planning-feature",
+        "./skills/conducting-market-research",
+        "./skills/enriching-sales-contacts"
+      ],
+      "agents": [
+        "./subagents/personal-voice-writer.md",
+        "./subagents/writing-research-assistant.md",
+        "./subagents/sales-contact-enricher.md"
+      ]
     }
-  ],
-  "subagents": [
-    {
-      "id": "personal-voice-writer",
-      "name": "Personal Voice Writer",
-      "description": "Write or revise content in a specific person's distinctive voice. Customize with your own writing patterns and examples.",
-      "path": "subagents/personal-voice-writer.md",
-      "category": "content",
-      "tools": ["Read", "Write", "WebFetch"],
-      "tags": ["writing", "voice", "style", "content", "personal-brand"]
-    },
-    {
-      "id": "writing-research-assistant",
-      "name": "Writing Research Assistant",
-      "description": "Research assistant for improving drafts - finds sources, verifies facts, locates citations, and gathers supporting evidence for claims.",
-      "path": "subagents/writing-research-assistant.md",
-      "category": "content",
-      "tools": ["WebSearch", "WebFetch", "Read"],
-      "tags": ["research", "citations", "fact-checking", "sources", "writing"]
-    },
-    {
-      "id": "sales-contact-enricher",
-      "name": "Sales Contact Enricher",
-      "description": "Enriches sales contacts from LinkedIn URLs using contact enrichment MCPs. Writes to Google Sheets. Designed for parallel batch processing.",
-      "path": "subagents/sales-contact-enricher.md",
-      "category": "sales",
-      "tools": ["WebSearch", "WebFetch", "Read", "Write"],
-      "tags": ["sales", "enrichment", "linkedin", "contacts", "sheets", "prospecting"]
-    }
-  ],
-  "categories": {
-    "content": {
-      "name": "Content",
-      "description": "Writing and content creation tools"
-    },
-    "sales": {
-      "name": "Sales",
-      "description": "Sales prospecting and outreach tools"
-    },
-    "research": {
-      "name": "Research",
-      "description": "Market research and competitive intelligence"
-    },
-    "product": {
-      "name": "Product",
-      "description": "Product planning and development"
-    }
-  }
+  ]
 }
